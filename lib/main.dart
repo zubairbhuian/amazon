@@ -23,21 +23,3 @@ class MyApp extends StatelessWidget {
         home: const Authscreen(),
       );
 }
-
-// class HomePage extends StatelessWidget {
-//   const HomePage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: const Text('My App')),
-//       body: Center(child: Builder(builder: (context) {
-//         return ElevatedButton(
-//             onPressed: () {
-//               Navigator.pushNamed(context, Authscreen.routeName);
-//             },
-//             child: const Text("Click Me"));
-//       })),
-//     );
-//   }
-// }
