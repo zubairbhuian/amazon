@@ -36,6 +36,8 @@ res.json(user)
 
 });
 
-
+authRouter.get('/api/signup' ,(req,res)=>{
+  res.json({'msg':'hi'})
+})
 
 module.exports=authRouter;

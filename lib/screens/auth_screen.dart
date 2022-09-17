@@ -3,6 +3,8 @@ import 'package:amazon/common/widgets/custrom_button.dart';
 import 'package:amazon/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../services/auth/auth_servise.dart';
+
 enum Auth { signin, signup }
 
 class Authscreen extends StatefulWidget {
@@ -15,8 +17,9 @@ class Authscreen extends StatefulWidget {
 
 class _AuthscreenState extends State<Authscreen> {
   Auth _auth = Auth.signin;
-  final GlobalKey _signUpFormKey = GlobalKey<FormState>();
-  final GlobalKey _signInFormKey = GlobalKey<FormState>();
+  final _signUpFormKey = GlobalKey<FormState>();
+  final _signInFormKey = GlobalKey<FormState>();
+  final AuthService authService = AuthService();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -28,6 +31,14 @@ class _AuthscreenState extends State<Authscreen> {
     _emailController.dispose();
     _passwordController.dispose();
     _nameController.dispose();
+  }
+
+  void signUpUser() {
+    authService.signUpUser(
+        context: context,
+        email: _emailController.text,
+        password: _passwordController.text,
+        name: _nameController.text);
   }
 
   @override
@@ -85,7 +96,13 @@ class _AuthscreenState extends State<Authscreen> {
                         hinText: 'Password',
                       ),
                       const SizedBox(height: 10),
-                      CustromButton(text: 'Sign Up', onPress: () {})
+                      CustromButton(
+                          text: 'Sign Up',
+                          onPress: () {
+                            if (_signUpFormKey.currentState!.validate()) {
+                              signUpUser();
+                            }
+                          })
                     ],
                   ),
                 ),
@@ -113,7 +130,7 @@ class _AuthscreenState extends State<Authscreen> {
                 padding: const EdgeInsets.all(8),
                 color: AppColor.backgroundColor,
                 child: Form(
-                  key: _signUpFormKey,
+                  key: _signInFormKey,
                   child: Column(
                     children: [
                       const SizedBox(height: 10),
