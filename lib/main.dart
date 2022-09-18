@@ -1,6 +1,5 @@
 import 'package:amazon/router.dart';
 import 'package:amazon/screens/auth_screen.dart';
-import 'package:amazon/screens/test_screen.dart';
 import 'package:amazon/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -24,4 +23,3 @@ class MyApp extends StatelessWidget {
         home: const Authscreen(),
       );
 }
-//  

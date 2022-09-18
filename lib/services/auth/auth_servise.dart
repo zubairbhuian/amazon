@@ -41,6 +41,7 @@ class AuthService {
           });
     } catch (e) {
       showSnackBar(context, e.toString());
+      print(e);
     }
   }
 }
