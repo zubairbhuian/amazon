@@ -8,7 +8,7 @@ const mongoose =require('mongoose');
 const authRouter=require('./routes/auth')
 // Init
 const app=express();
-const PORT=3000;
+const PORT=process.env.PORT || 3000;
 const DB='mongodb+srv://bhuian:dlpi2vxKa9cBARgP@cluster0.o7cf44f.mongodb.net/?retryWrites=true&w=majority';
 // middleware
 app.use(express.json())
