@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:amazon/providers/user-provider.dart';
 import 'package:amazon/router.dart';
 import 'package:amazon/screens/auth_screen.dart';
@@ -7,11 +5,10 @@ import 'package:amazon/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(MultiProvider(providers: [
-  ChangeNotifierProvider(create: (context)=>UserProvider())
-],
-child: MyApp(),
-));
+void main() => runApp(MultiProvider(
+      providers: [ChangeNotifierProvider(create: (context) => UserProvider())],
+      child: const MyApp(),
+    ));
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

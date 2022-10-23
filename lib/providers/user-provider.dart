@@ -2,7 +2,7 @@ import 'package:amazon/models/user.dart';
 import 'package:flutter/cupertino.dart';
 
 class UserProvider extends ChangeNotifier {
-  User  _user = User(
+  User _user = User(
       name: "",
       email: "",
       password: "",
